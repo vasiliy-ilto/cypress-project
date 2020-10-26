@@ -4,16 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run-all-tests": "npx cypress run --spec ./cypress/integration/com.herokuapp.tests/*.js --browser chrome",
+    "allure-reports": "npx cypress run --spec ./cypress/integration/com.herokuapp.tests/*.js --browser chrome --reporter mocha-allure-reporter",
+    "allure-results": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "allure-clean-report": "npm run allure-reports && npm run allure-results"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^1.4.0",
+    "allure-commandline": "^2.13.0",
     "cypress": "^5.3.0",
     "cypress-file-upload": "^4.1.1",
-    "cypress-xpath": "^1.6.0"
+    "cypress-xpath": "^1.6.0",
+    "mocha-allure-reporter": "^1.4.0"
   },
   "dependencies": {
     "cypress-downloadfile": "^1.2.0"
